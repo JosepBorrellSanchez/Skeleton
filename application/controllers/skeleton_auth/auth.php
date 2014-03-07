@@ -151,13 +151,22 @@ function index()
 			{
 				//if the login is successful
 				//redirect them back to the home page
+				$newdata = array(
+                   'username'  => $this->input->post('identity'),
+                   'email'     => 'johndoe@some-site.com',
+                   'logged_in' => TRUE
+               );
+               $this->session->set_userdata($newdata);
+
 				$this->session->set_flashdata('message', $this->skeleton_auth->messages());
 				redirect($this->after_succesful_login_page, 'refresh');
+				
 			}
 			else
 			{
 				//if the login was un-successful
 				//redirect them back to the login page
+				
 				$this->session->set_flashdata('message', $this->skeleton_auth->errors());
 				redirect($this->login_page, 'refresh'); //use redirects instead of loading views for compatibility with MY_Controller libraries
 			}

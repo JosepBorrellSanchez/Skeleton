@@ -50,6 +50,7 @@ class skeleton_main extends CI_Controller {
 		return $html_header_data;
 	} 
 	
+	
 	protected function add_css_to_html_header_data($html_header_data,$css_file) {		
 		array_push($html_header_data['skeleton_css_files'],$css_file);
 		return $html_header_data;
@@ -130,6 +131,11 @@ class skeleton_main extends CI_Controller {
 			//redirect them to the login page
 			redirect($this->skeleton_auth->login_page, 'refresh');
 		}
+		
+		//echo $this->session->userdata('newdata');
+		//echo $newdata;
+		
+		
 		//redirect($this->skeleton_auth->login_page, 'refresh');
 		
 		//LOAD VIEW
